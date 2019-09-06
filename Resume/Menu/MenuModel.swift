@@ -15,7 +15,8 @@ enum MenuCellType {
 }
 
 struct MenuCellModel {
-  let type: MenuCellType
+  let cellType: MenuCellType
   let image: UIImage?
   let title: String
+  let type: TypeModel?
 }

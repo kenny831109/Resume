@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuControllerDelegate: class {
+  func seleted(_ type: TypeModel)
+}
+
 class MenuViewController: MainController {
   
   lazy private var maskView: UIView = {
@@ -33,14 +37,18 @@ class MenuViewController: MainController {
   private lazy var panRecognizer: UIPanGestureRecognizer = {
     let recognizer = UIPanGestureRecognizer()
     recognizer.addTarget(self, action: #selector(menuPanGesture(_:)))
+    recognizer.delegate = self
     return recognizer
   }()
+  
+  weak var delegate: MenuControllerDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()
   }
   
   private var menuLeadingConstraint: NSLayoutConstraint?
+  private var menuWidthConstraint: NSLayoutConstraint?
   private var menuWidth: CGFloat = 250
   private var animatDuration = 0.3
   private var closeAnimator: UIViewPropertyAnimator!
@@ -48,9 +56,11 @@ class MenuViewController: MainController {
   private var logoCell = "logo"
   private var buttonCell = "button"
   private var bottomCell = "bottom"
-  private var menuItems = [MenuCellModel(type: .Logo, image: #imageLiteral(resourceName: "heart"), title: "Logo"),
-                           MenuCellModel(type: .Button, image: nil, title: "About Me"),
-                           MenuCellModel(type: .Bottom, image: #imageLiteral(resourceName: "heart"), title: "Logo")]
+  private var menuItems = [MenuCellModel(cellType: .Logo, image: #imageLiteral(resourceName: "curriculum"), title: "Logo", type: nil),
+                           MenuCellModel(cellType: .Button, image: nil, title: "關於我", type: .AboutMe),
+                           MenuCellModel(cellType: .Button, image: nil, title: "履歷", type: .Resume),
+                           MenuCellModel(cellType: .Button, image: nil, title: "作品集", type: .Works),
+                           MenuCellModel(cellType: .Bottom, image: #imageLiteral(resourceName: "copyright"), title: "CopyRight", type: nil)]
   
   override func setupView() {
     view.backgroundColor = .clear
@@ -64,13 +74,13 @@ class MenuViewController: MainController {
     view.addSubview(menuView)
     menuLeadingConstraint = menuView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -menuWidth)
     menuLeadingConstraint?.isActive = true
-    menuView.widthAnchor.constraint(equalToConstant: menuWidth).isActive = true
+    menuWidthConstraint = menuView.widthAnchor.constraint(equalToConstant: menuWidth)
+    menuWidthConstraint?.isActive = true
     menuView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     menuView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     menuView.register(MenuLogoCell.self, forCellReuseIdentifier: logoCell)
     menuView.register(MenuButtonCell.self, forCellReuseIdentifier: buttonCell)
     menuView.register(MenuBottomCell.self, forCellReuseIdentifier: bottomCell)
-
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -106,20 +116,22 @@ extension MenuViewController {
     let translation = recognizer.translation(in: menuView)
     let fraction = -translation.x / menuWidth
     let velocity = recognizer.velocity(in: menuView)
+    if translation.x > 0 {
+      return
+    }
+    menuLeadingConstraint?.constant = translation.x
     switch recognizer.state {
-    case .began:
-      closeAnimator.pauseAnimation()
     case .changed:
-      closeAnimator.fractionComplete = fraction
+      maskView.alpha = 1 - fraction
     case .ended:
       if fraction > 0.5 || velocity.x < -100 {
-        closeAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-        closeAnimator.addCompletion { (state) in
-          self.dismiss(animated: false, completion: nil)
-        }
+        menuClose()
       }else {
-        maskView.alpha = 1
-        closeAnimator.fractionComplete = 0
+        UIView.animate(withDuration: 0.3) {
+          self.maskView.alpha = 1
+          self.menuLeadingConstraint?.constant = 0
+          self.view.layoutIfNeeded()
+        }
       }
     default:
       break
@@ -128,14 +140,36 @@ extension MenuViewController {
   
 }
 
-extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+extension MenuViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    menuView.deselectRow(at: indexPath, animated: true)
+    guard let type = menuItems[indexPath.row].type else {return}
+    delegate?.seleted(type)
+    menuClose()
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch menuItems[indexPath.row].cellType {
+    case .Logo:
+      return 150
+    case .Button:
+      return 60
+    case .Bottom:
+      return 100
+    }
+  }
+  
+}
+
+extension MenuViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return menuItems.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    switch menuItems[indexPath.row].type {
+    switch menuItems[indexPath.row].cellType {
     case .Logo:
       let cell = menuView.dequeueReusableCell(withIdentifier: logoCell, for: indexPath) as! MenuLogoCell
       cell.menuItem = menuItems[indexPath.row]
@@ -151,15 +185,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    switch menuItems[indexPath.row].type {
-    case .Logo:
-      return 150
-    case .Button:
-      return 22
-    case .Bottom:
-      return 100
-    }
+}
+
+extension MenuViewController: UIGestureRecognizerDelegate {
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    return true
   }
-  
 }

@@ -31,6 +31,57 @@ class MainController: UIViewController {
     button.addTarget(self, action: #selector(menuHandler), for: .touchUpInside)
     return button
   }()
+  
+  lazy private var magicView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 0
+    let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .white
+    view.delegate = self
+    view.dataSource = self
+    return view
+  }()
+  
+  private var seletedType: TypeModel = .Resume {
+    didSet {
+      switch seletedType {
+      case .AboutMe:
+        items = aboutMeItems
+      case .Resume:
+        items = resumeItems
+      case .Works:
+        items = worksItems
+      }
+      magicView.reloadData()
+    }
+  }
+  
+  let lightCell = "light"
+  let boldCell = "bold"
+  let mediumCell = "medium"
+  let imageCell = "image"
+  let worksCell = "works"
+  
+  let resumeItems = [MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                     MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                     MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                     MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil)]
+  
+  let aboutMeItems = [MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                      MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                      MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                      MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil)]
+  
+  let worksItems = [MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                   MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                   MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil),
+                   MagicModel(type: .Image, title: nil, text: nil, image: #imageLiteral(resourceName: "user"), link: nil)]
+  
+  var items = [MagicModel(type: .LightText, title: "名稱", text: "Kenny", image: nil, link: nil),
+               MagicModel(type: .LightText, title: "電話", text: "07-783-1787", image: nil, link: nil),
+               MagicModel(type: .LightText, title: "Email", text: "baby831109@yahoo.com.tw", image: nil, link: nil),
+               MagicModel(type: .LightText, title: "地址", text: "高雄市大寮區山頂里景秀街六號", image: nil, link: nil)]
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,6 +98,12 @@ class MainController: UIViewController {
     menuButton.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userImageButton)
     navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+    view.addSubview(magicView)
+    magicView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+    magicView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    magicView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    magicView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    magicView.register(LightTextCell.self, forCellWithReuseIdentifier: lightCell)
   }
   
   private func changeAvatarHandler() {
@@ -98,6 +155,7 @@ extension MainController {
   
   @objc private func menuHandler() {
     let vc = MenuViewController()
+    vc.delegate = self
     vc.modalPresentationStyle = .overCurrentContext
     present(vc, animated: false, completion: nil)
   }
@@ -122,5 +180,68 @@ extension MainController: UIImagePickerControllerDelegate, UINavigationControlle
     }
   }
   
+}
+
+extension MainController: UICollectionViewDelegate {
+  
+}
+
+extension MainController: UICollectionViewDataSource{
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return items.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    switch items[indexPath.item].type {
+    case .Image:
+      let cell = magicView.dequeueReusableCell(withReuseIdentifier: lightCell, for: indexPath) as! LightTextCell
+      cell.item = items[indexPath.item]
+      return cell
+    case .BoldText:
+      let cell = magicView.dequeueReusableCell(withReuseIdentifier: lightCell, for: indexPath) as! LightTextCell
+      cell.item = items[indexPath.item]
+      return cell
+    case .LightText:
+      let cell = magicView.dequeueReusableCell(withReuseIdentifier: lightCell, for: indexPath) as! LightTextCell
+      cell.item = items[indexPath.item]
+      return cell
+    case .MediumText:
+      let cell = magicView.dequeueReusableCell(withReuseIdentifier: lightCell, for: indexPath) as! LightTextCell
+      cell.item = items[indexPath.item]
+      return cell
+    case .Works:
+      let cell = magicView.dequeueReusableCell(withReuseIdentifier: lightCell, for: indexPath) as! LightTextCell
+      cell.item = items[indexPath.item]
+      return cell
+    }
+  }
+  
+}
+
+extension MainController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    switch items[indexPath.item].type {
+    case .Image:
+      return CGSize(width: view.frame.width, height: 100)
+    case .BoldText:
+      return CGSize(width: view.frame.width, height: 44)
+    case .LightText:
+      return CGSize(width: view.frame.width, height: 34)
+    case .MediumText:
+      return CGSize(width: view.frame.width, height: 44)
+    case .Works:
+      return CGSize(width: view.frame.width, height: 100)
+    }
+  }
+  
+}
+
+extension MainController: MenuControllerDelegate {
+  
+  func seleted(_ type: TypeModel) {
+    seletedType = type
+  }
+
 }
 

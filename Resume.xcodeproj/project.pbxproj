@@ -16,6 +16,8 @@
 		94210DF0232234000058310E /* MenuLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DEF232234000058310E /* MenuLogoCell.swift */; };
 		94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF1232234E20058310E /* MenuButtonCell.swift */; };
 		94210DF4232235390058310E /* MenuBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF3232235390058310E /* MenuBottomCell.swift */; };
+		949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6C23224DBB008D6B19 /* MagicModel.swift */; };
+		949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6F23225702008D6B19 /* LightTextCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		94210DEF232234000058310E /* MenuLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoCell.swift; sourceTree = "<group>"; };
 		94210DF1232234E20058310E /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		94210DF3232235390058310E /* MenuBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomCell.swift; sourceTree = "<group>"; };
+		949C0C6C23224DBB008D6B19 /* MagicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicModel.swift; sourceTree = "<group>"; };
+		949C0C6F23225702008D6B19 /* LightTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTextCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				94210DD42321FEEA0058310E /* AppDelegate.swift */,
-				94210DE923221BFD0058310E /* Menu */,
 				94210DE823221BF40058310E /* Main */,
+				94210DE923221BFD0058310E /* Menu */,
 				94210DDB2321FEEB0058310E /* Assets.xcassets */,
 				94210DDD2321FEEB0058310E /* LaunchScreen.storyboard */,
 				94210DE02321FEEB0058310E /* Info.plist */,
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				94210DD62321FEEA0058310E /* MainController.swift */,
+				949C0C6C23224DBB008D6B19 /* MagicModel.swift */,
+				949C0C6E232256B9008D6B19 /* Cell */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -96,6 +102,14 @@
 				94210DEF232234000058310E /* MenuLogoCell.swift */,
 				94210DF1232234E20058310E /* MenuButtonCell.swift */,
 				94210DF3232235390058310E /* MenuBottomCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		949C0C6E232256B9008D6B19 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				949C0C6F23225702008D6B19 /* LightTextCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -173,8 +187,10 @@
 				94210DED232232A20058310E /* MenuModel.swift in Sources */,
 				94210DF0232234000058310E /* MenuLogoCell.swift in Sources */,
 				94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */,
+				949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */,
 				94210DD72321FEEA0058310E /* MainController.swift in Sources */,
 				94210DEB23221C0F0058310E /* MenuViewController.swift in Sources */,
+				949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */,
 				94210DD52321FEEA0058310E /* AppDelegate.swift in Sources */,
 				94210DF4232235390058310E /* MenuBottomCell.swift in Sources */,
 			);

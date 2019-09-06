@@ -17,6 +17,13 @@ class MenuButtonCell: UITableViewCell {
     return label
   }()
   
+  let separator: UIView = {
+    let view = UIView()
+    view.translatesAutoresizingMaskIntoConstraints = false
+    view.backgroundColor = .white
+    return view
+  }()
+  
   var menuItem: MenuCellModel! {
     didSet {
       title.text = menuItem.title
@@ -26,11 +33,17 @@ class MenuButtonCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     backgroundColor = .clear
+    selectionStyle = .gray
     addSubview(title)
-    title.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-    title.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    title.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+    title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     title.topAnchor.constraint(equalTo: topAnchor).isActive = true
     title.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    addSubview(separator)
+    separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+    separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+    separator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    separator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {

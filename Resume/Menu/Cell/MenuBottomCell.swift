@@ -13,7 +13,19 @@ class MenuBottomCell: UITableViewCell {
   let logo: UIImageView = {
     let view = UIImageView()
     view.translatesAutoresizingMaskIntoConstraints = false
+    view.contentMode = UIView.ContentMode.scaleAspectFit
     return view
+  }()
+  
+  let copyright: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.text = "Copyright © 2019 Kenny Chen. All rights reserved."
+    label.textColor = .white
+    label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+    label.textAlignment = .center
+    label.numberOfLines = 0
+    return label
   }()
   
   var menuItem: MenuCellModel! {
@@ -26,11 +38,11 @@ class MenuBottomCell: UITableViewCell {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     selectionStyle = .none
     backgroundColor = .clear
-    addSubview(logo)
-    logo.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-    logo.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-    logo.topAnchor.constraint(equalTo: topAnchor).isActive = true
-    logo.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    addSubview(copyright)
+    copyright.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+    copyright.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    copyright.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    copyright.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {

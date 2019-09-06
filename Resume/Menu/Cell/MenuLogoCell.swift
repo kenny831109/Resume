@@ -13,6 +13,7 @@ class MenuLogoCell: UITableViewCell {
   let logo: UIImageView = {
     let view = UIImageView()
     view.translatesAutoresizingMaskIntoConstraints = false
+    view.contentMode = UIView.ContentMode.scaleAspectFit
     return view
   }()
   
@@ -27,8 +28,8 @@ class MenuLogoCell: UITableViewCell {
     selectionStyle = .none
     backgroundColor = .clear
     addSubview(logo)
-    logo.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-    logo.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+    logo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+    logo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     logo.topAnchor.constraint(equalTo: topAnchor).isActive = true
     logo.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
   }
