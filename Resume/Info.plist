@@ -8,8 +8,6 @@
 	<string>允許使用相簿</string>
 	<key>NSCameraUsageDescription</key>
 	<string>允許使用相機</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

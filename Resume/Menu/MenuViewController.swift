@@ -12,7 +12,7 @@ protocol MenuControllerDelegate: class {
   func seleted(_ type: TypeModel)
 }
 
-class MenuViewController: MainController {
+class MenuViewController: ResumeController {
   
   lazy private var maskView: UIView = {
     let view = UIView()
