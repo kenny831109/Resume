@@ -1,0 +1,24 @@
+PODS:
+  - ActiveLabel (1.1.0)
+  - Hero (1.4.0)
+  - SwipeCellKit (2.6.0)
+
+DEPENDENCIES:
+  - ActiveLabel
+  - Hero
+  - SwipeCellKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ActiveLabel
+    - Hero
+    - SwipeCellKit
+
+SPEC CHECKSUMS:
+  ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+
+PODFILE CHECKSUM: 16fc5268156c37397642fd2644344c64aedc3b9b
+
+COCOAPODS: 1.7.3
