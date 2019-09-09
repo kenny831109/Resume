@@ -26,6 +26,7 @@
 		94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992A23263172007BE138 /* CustomAlertController.swift */; };
 		94DA992D232631F5007BE138 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992C232631F5007BE138 /* CustomAlertView.swift */; };
 		94DA992F23263C8C007BE138 /* CustomAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992E23263C8C007BE138 /* CustomAlertType.swift */; };
+		94DA993223264CE5007BE138 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA993123264CE5007BE138 /* LaunchScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		94DA992A23263172007BE138 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		94DA992C232631F5007BE138 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		94DA992E23263C8C007BE138 /* CustomAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertType.swift; sourceTree = "<group>"; };
+		94DA993123264CE5007BE138 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		D38B19F59C664100E2E7598D /* Pods-Resume.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resume.debug.xcconfig"; path = "Target Support Files/Pods-Resume/Pods-Resume.debug.xcconfig"; sourceTree = "<group>"; };
 		E42CBEE855BBFB24216AF264 /* Pods_Resume.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resume.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				94210DD42321FEEA0058310E /* AppDelegate.swift */,
+				94DA993023264CC2007BE138 /* LaunchScreen */,
 				94DA992923263152007BE138 /* CustomAlert */,
 				94210DE823221BF40058310E /* Resume */,
 				9483CEF923260F9B007D4EE8 /* AboutMe */,
@@ -181,6 +184,14 @@
 				94DA992E23263C8C007BE138 /* CustomAlertType.swift */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		94DA993023264CC2007BE138 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				94DA993123264CE5007BE138 /* LaunchScreenController.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		ADCFE6445E134CBFAA5AE87D /* Frameworks */ = {
@@ -320,6 +331,7 @@
 				948D9BE92325E48C00DA9D00 /* IntrodutionCell.swift in Sources */,
 				94210DD52321FEEA0058310E /* AppDelegate.swift in Sources */,
 				9483CEF82325FC4F007D4EE8 /* IntroContainer.swift in Sources */,
+				94DA993223264CE5007BE138 /* LaunchScreenController.swift in Sources */,
 				94210DF4232235390058310E /* MenuBottomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
