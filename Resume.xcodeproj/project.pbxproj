@@ -21,6 +21,8 @@
 		9483CEF82325FC4F007D4EE8 /* IntroContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEF72325FC4F007D4EE8 /* IntroContainer.swift */; };
 		9483CEFB23260FB3007D4EE8 /* AboutMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */; };
 		948D9BE92325E48C00DA9D00 /* IntrodutionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948D9BE82325E48C00DA9D00 /* IntrodutionCell.swift */; };
+		9493B3D123276A91004B9151 /* IntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493B3D023276A91004B9151 /* IntroCell.swift */; };
+		9493B3D3232788AB004B9151 /* EducationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493B3D2232788AB004B9151 /* EducationCell.swift */; };
 		949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6C23224DBB008D6B19 /* MagicModel.swift */; };
 		949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6F23225702008D6B19 /* LightTextCell.swift */; };
 		94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992A23263172007BE138 /* CustomAlertController.swift */; };
@@ -46,6 +48,8 @@
 		9483CEF72325FC4F007D4EE8 /* IntroContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroContainer.swift; sourceTree = "<group>"; };
 		9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeController.swift; sourceTree = "<group>"; };
 		948D9BE82325E48C00DA9D00 /* IntrodutionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrodutionCell.swift; sourceTree = "<group>"; };
+		9493B3D023276A91004B9151 /* IntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCell.swift; sourceTree = "<group>"; };
+		9493B3D2232788AB004B9151 /* EducationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCell.swift; sourceTree = "<group>"; };
 		949C0C6C23224DBB008D6B19 /* MagicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicModel.swift; sourceTree = "<group>"; };
 		949C0C6F23225702008D6B19 /* LightTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTextCell.swift; sourceTree = "<group>"; };
 		94DA992A23263172007BE138 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
@@ -163,8 +167,18 @@
 			isa = PBXGroup;
 			children = (
 				9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */,
+				9493B3CF23276A4D004B9151 /* Cell */,
 			);
 			path = AboutMe;
+			sourceTree = "<group>";
+		};
+		9493B3CF23276A4D004B9151 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9493B3D023276A91004B9151 /* IntroCell.swift */,
+				9493B3D2232788AB004B9151 /* EducationCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		949C0C6E232256B9008D6B19 /* Cell */ = {
@@ -320,6 +334,7 @@
 				94210DED232232A20058310E /* MenuModel.swift in Sources */,
 				9483CEF42325F9D7007D4EE8 /* ResumeModel.swift in Sources */,
 				94210DF0232234000058310E /* MenuLogoCell.swift in Sources */,
+				9493B3D3232788AB004B9151 /* EducationCell.swift in Sources */,
 				94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */,
 				94DA992F23263C8C007BE138 /* CustomAlertType.swift in Sources */,
 				949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */,
@@ -328,6 +343,7 @@
 				94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */,
 				949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */,
 				9483CEFB23260FB3007D4EE8 /* AboutMeController.swift in Sources */,
+				9493B3D123276A91004B9151 /* IntroCell.swift in Sources */,
 				948D9BE92325E48C00DA9D00 /* IntrodutionCell.swift in Sources */,
 				94210DD52321FEEA0058310E /* AppDelegate.swift in Sources */,
 				9483CEF82325FC4F007D4EE8 /* IntroContainer.swift in Sources */,

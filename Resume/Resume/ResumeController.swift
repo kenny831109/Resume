@@ -47,12 +47,12 @@ class ResumeController: UIViewController {
   }()
 
   let resumeCell = "resume"
-  var resumes = [Resume(avatar: "", image: #imageLiteral(resourceName: "user"), name: "Kenny", email: "baby831109@yahoo.com.tw", intro: "iOS 工程師・開發經驗 3 年・擅長畫面佈局及App優化 \n\n#GitHub   #CakeResume 😀"),
-                 Resume(avatar: "", image: #imageLiteral(resourceName: "Einstein"), name: "Albert Einstein", email: "albert@gmail.com", intro: "Life is like riding a bicycle. To keep your balance you must keep moving."),
-                 Resume(avatar: "", image: #imageLiteral(resourceName: "Bill"),name: "Bill Gates", email: "bill@gmail.com", intro: "Success is a lousy teacher. It seduces smart people into thinking they can't lose."),
-                 Resume(avatar: "", image: #imageLiteral(resourceName: "man3"),name: "Mark Elliot Zuckerberg", email: "zuckerberg@gmail.com", intro: "Purpose is that sense that we are part of something bigger than ourselves, that we are needed, that we have something better ahead to work for. Purpose is what creates true happiness."),
-                 Resume(avatar: "", image: #imageLiteral(resourceName: "Musk"),name: "Elon Musk", email: "musk@gmail.com", intro: "My biggest mistake is probably weighing too much on someone's talent and not someone's personality. I think it matters whether someone has a good heart."),
-                 Resume(avatar: "", image: #imageLiteral(resourceName: "Jobs"),name: "Steve Jobs", email: "jobs@gmail.com", intro: "We don’t get a chance to do that many things, and every one should be really excellent")]
+  var resumes = [Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "user"), name: "Kenny", email: "baby831109@yahoo.com.tw", intro: "iOS 工程師・開發經驗 3 年・擅長畫面佈局及App優化 \n\n#GitHub   #CakeResume 😀"),
+                 Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "Einstein"), name: "Albert Einstein", email: "albert@gmail.com", intro: "Life is like riding a bicycle. To keep your balance you must keep moving."),
+                 Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "Bill"),name: "Bill Gates", email: "bill@gmail.com", intro: "Success is a lousy teacher. It seduces smart people into thinking they can't lose."),
+                 Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "man3"),name: "Mark Elliot Zuckerberg", email: "zuckerberg@gmail.com", intro: "Purpose is that sense that we are part of something bigger than ourselves, that we are needed, that we have something better ahead to work for. Purpose is what creates true happiness."),
+                 Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "Musk"),name: "Elon Musk", email: "musk@gmail.com", intro: "My biggest mistake is probably weighing too much on someone's talent and not someone's personality. I think it matters whether someone has a good heart."),
+                 Resume(position: .top, avatar: "", image: #imageLiteral(resourceName: "Jobs"),name: "Steve Jobs", email: "jobs@gmail.com", intro: "We don’t get a chance to do that many things, and every one should be really excellent")]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -241,7 +241,12 @@ extension ResumeController: UICollectionViewDataSource{
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let vc = AboutMeController()
-    vc.introContainer.hero.id = "container\(indexPath.item)"
+//    vc.introContainer.hero.id = "container\(indexPath.item)"
+    let education = Education(from: "2012.9.1", to: "2016.7.31", isGraduation: true, name: "正修科技大學", department: "資訊工程系")
+    var temp = [Resume(position: .education, education: education)]
+    temp.insert(resumes[indexPath.item], at: 0)
+    vc.resume = temp
+    vc.heroID = "container\(indexPath.item)"
     present(vc, animated: true, completion: nil)
   }
   
@@ -260,8 +265,9 @@ extension ResumeController: MenuControllerDelegate {
   func seleted(_ type: TypeModel) {
     switch type {
     case .AboutMe:
-      let vc = AboutMeController()
-      navigationController?.pushViewController(vc, animated: false)
+      print("0")
+//      let vc = AboutMeController()
+//      navigationController?.pushViewController(vc, animated: false)
     case .Resume:
       //
       print("1")
