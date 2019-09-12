@@ -245,6 +245,7 @@ extension ResumeController: UICollectionViewDataSource{
     let education = Education(from: "2012.9.1", to: "2016.7.31", isGraduation: true, name: "正修科技大學", department: "資訊工程系")
     var temp = [Resume(position: .education, education: education)]
     temp.insert(resumes[indexPath.item], at: 0)
+//    vc.resume = [resumes[indexPath.item]]
     vc.resume = temp
     vc.heroID = "container\(indexPath.item)"
     present(vc, animated: true, completion: nil)

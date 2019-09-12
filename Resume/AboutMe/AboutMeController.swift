@@ -21,6 +21,7 @@ class AboutMeController: UIViewController {
   
   lazy var resumeList: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 0
     let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .white
@@ -82,7 +83,7 @@ extension AboutMeController {
   }
   
   @objc func panRecongnizer(_ recognizer: UIPanGestureRecognizer) {
-    if resumeList.contentOffset.y < 0 {
+    if resumeList.contentOffset.y <= 0 {
       let translation = recognizer.translation(in: nil)
       let progress = translation.y / view.bounds.height
       switch recognizer.state {
@@ -114,7 +115,7 @@ extension AboutMeController: UICollectionViewDelegate, UICollectionViewDelegateF
     case .bottom:
        return CGSize(width: view.frame.width, height: 150)
     case .education:
-       return CGSize(width: view.frame.width, height: 150)
+       return CGSize(width: view.frame.width, height: 70)
     case .experience:
        return CGSize(width: view.frame.width, height: 150)
     case .works:
