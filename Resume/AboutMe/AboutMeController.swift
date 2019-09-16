@@ -30,8 +30,8 @@ class AboutMeController: UIViewController {
     return view
   }()
   
-  lazy var introContainer: IntroContainer = {
-    let container = IntroContainer()
+  lazy var introContainer: ShadowContainer = {
+    let container = ShadowContainer()
     container.translatesAutoresizingMaskIntoConstraints = false
     container.layer.shadowOpacity = 0
 //    container.intro.delegate = self
@@ -57,13 +57,16 @@ class AboutMeController: UIViewController {
     panGesture = UIPanGestureRecognizer(target: self, action: #selector(panRecongnizer(_:)))
     panGesture?.delegate = self
     view.addSubview(resumeList)
-    resumeList.addGestureRecognizer(panGesture!)
+    view.addGestureRecognizer(panGesture!)
     resumeList.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     resumeList.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     resumeList.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 5).isActive = true
     resumeList.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     resumeList.register(IntroCell.self, forCellWithReuseIdentifier: "intro")
     resumeList.register(EducationCell.self, forCellWithReuseIdentifier: "education")
+    resumeList.register(TitleCell.self, forCellWithReuseIdentifier: "title")
+    resumeList.register(ExperienceCell.self, forCellWithReuseIdentifier: "experience")
+    resumeList.register(WorksView.self, forCellWithReuseIdentifier: "works")
     load()
   }
   
@@ -83,7 +86,7 @@ extension AboutMeController {
   }
   
   @objc func panRecongnizer(_ recognizer: UIPanGestureRecognizer) {
-    if resumeList.contentOffset.y <= 0 {
+    if resumeList.contentOffset.y == 0 {
       let translation = recognizer.translation(in: nil)
       let progress = translation.y / view.bounds.height
       switch recognizer.state {
@@ -95,7 +98,7 @@ extension AboutMeController {
         let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
         Hero.shared.apply(modifiers: [.position(currentPos)], to: view)
       default:
-        if progress + recognizer.velocity(in: nil).y / view.bounds.height > 0.3 {
+        if progress + recognizer.velocity(in: nil).y / view.bounds.height > 0.55 {
           Hero.shared.finish()
         } else {
           Hero.shared.cancel()
@@ -111,16 +114,35 @@ extension AboutMeController: UICollectionViewDelegate, UICollectionViewDelegateF
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     switch resume[indexPath.item].position {
     case .top:
-       return CGSize(width: view.frame.width, height: 150)
+      return CGSize(width: view.frame.width, height: 150)
     case .bottom:
-       return CGSize(width: view.frame.width, height: 150)
+      return CGSize(width: view.frame.width, height: 150)
     case .education:
-       return CGSize(width: view.frame.width, height: 70)
+      return CGSize(width: view.frame.width, height: 85)
     case .experience:
-       return CGSize(width: view.frame.width, height: 150)
+      return CGSize(width: view.frame.width, height: 85)
     case .works:
-       return CGSize(width: view.frame.width, height: 150)
+      return CGSize(width: view.frame.width, height: 250)
+    case .title:
+      return CGSize(width: view.frame.width, height: 40)
+    case .separator:
+      return CGSize(width: view.frame.width, height: 5)
     }
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let shouldScrollEnabled: Bool
+    if scrollView.isTracking && scrollView.contentOffset.y < 0 {
+      shouldScrollEnabled = false
+    } else {
+      shouldScrollEnabled = true
+    }
+    
+    // Update only on change
+    if shouldScrollEnabled != scrollView.isScrollEnabled {
+      scrollView.isScrollEnabled = shouldScrollEnabled
+    }
+    
   }
   
 }
@@ -143,13 +165,21 @@ extension AboutMeController: UICollectionViewDataSource {
       cell.education = resume[indexPath.item].education!
       return cell
     case .experience:
-      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "intro", for: indexPath) as! IntroCell
+      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "experience", for: indexPath) as! ExperienceCell
+      cell.experience = resume[indexPath.item].experience!
       return cell
     case .works:
-      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "intro", for: indexPath) as! IntroCell
+      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "works", for: indexPath) as! WorksView
       return cell
     case .bottom:
       let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "intro", for: indexPath) as! IntroCell
+      return cell
+    case .title:
+      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "title", for: indexPath) as! TitleCell
+      cell.titleSetting = resume[indexPath.item].title!
+      return cell
+    case .separator:
+      let cell = resumeList.dequeueReusableCell(withReuseIdentifier: "title", for: indexPath) as! TitleCell
       return cell
     }
   }
@@ -160,6 +190,15 @@ extension AboutMeController: UIGestureRecognizerDelegate {
   
   func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
     return true
+  }
+  
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    
+    if gestureRecognizer is UIPanGestureRecognizer  {
+      return true
+    } else {
+      return false
+    }
   }
   
 }

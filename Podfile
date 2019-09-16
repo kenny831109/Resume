@@ -7,6 +7,7 @@ target 'Resume' do
   pod 'ActiveLabel'
   pod 'Hero'
   pod 'SwipeCellKit'
+  pod 'AnimatedCollectionViewLayout'
   # Pods for Resume
 
 end

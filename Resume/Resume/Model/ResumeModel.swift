@@ -14,6 +14,8 @@ enum CellPosition {
   case works
   case education
   case experience
+  case title
+  case separator
 }
 
 struct Resume: Codable {
@@ -27,8 +29,9 @@ struct Resume: Codable {
   var education: Education?
   var experience: Experience?
   var works: [Works]?
+  var title: Title?
   
-  init(position: CellPosition, avatar: String? = nil, image: UIImage? = nil, name: String? = nil, email: String? = nil, intro: String? = nil, detail: [Resume]? = [Resume](), education: Education? = nil, experience: Experience? = nil, works: [Works]? = [Works]()) {
+  init(position: CellPosition, avatar: String? = nil, image: UIImage? = nil, name: String? = nil, email: String? = nil, intro: String? = nil, detail: [Resume]? = [Resume](), education: Education? = nil, experience: Experience? = nil, works: [Works]? = [Works](), title: Title? = nil) {
     self.position = position
     self.avatar = avatar
     self.image = image
@@ -39,6 +42,7 @@ struct Resume: Codable {
     self.education = education
     self.experience = experience
     self.works = works
+    self.title = title
   }
   
   enum CodingKeys: String, CodingKey {
@@ -76,5 +80,11 @@ struct Works {
 struct ScreenShot {
   let detail: String
   let image: String
+}
+
+struct Title {
+  let title: String
+  let color: UIColor
+  let position: NSTextAlignment
 }
 

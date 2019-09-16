@@ -1,14 +1,14 @@
 //
-//  EducationCell.swift
+//  ExperienceCell.swift
 //  Resume
 //
-//  Created by 逸唐陳 on 2019/9/10.
+//  Created by 逸唐陳 on 2019/9/16.
 //  Copyright © 2019 逸唐陳. All rights reserved.
 //
 
 import UIKit
 
-class EducationCell: UICollectionViewCell {
+class ExperienceCell: UICollectionViewCell {
   
   lazy var shadowContainer: UIView = {
     let container = UIView()
@@ -28,7 +28,7 @@ class EducationCell: UICollectionViewCell {
     return view
   }()
   
-  let studyPeriod: UILabel = {
+  let workPeriod: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -36,7 +36,7 @@ class EducationCell: UICollectionViewCell {
     return label
   }()
   
-  let schoolName: UILabel = {
+  let companyName: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -44,7 +44,7 @@ class EducationCell: UICollectionViewCell {
     return label
   }()
   
-  let department: UILabel = {
+  let jobTitle: UILabel = {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
     label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -52,11 +52,11 @@ class EducationCell: UICollectionViewCell {
     return label
   }()
   
-  var education: Education! {
+  var experience: Experience! {
     didSet {
-      studyPeriod.text = "\(education.from) ~ \(education.to)"
-      schoolName.text = education.name
-      department.text = education.department
+      workPeriod.text = "\(experience.from) ~ \(experience.to)"
+      companyName.text = experience.companyName
+      jobTitle.text = experience.title
     }
   }
   
@@ -72,21 +72,21 @@ class EducationCell: UICollectionViewCell {
     dotIcon.heightAnchor.constraint(equalToConstant: 6).isActive = true
     dotIcon.widthAnchor.constraint(equalToConstant: 6).isActive = true
     dotIcon.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    shadowContainer.addSubview(schoolName)
-    schoolName.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    schoolName.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
-    schoolName.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
-    schoolName.heightAnchor.constraint(equalToConstant: 20).isActive = true
-    shadowContainer.addSubview(studyPeriod)
-    studyPeriod.bottomAnchor.constraint(equalTo: schoolName.topAnchor, constant: -5).isActive = true
-    studyPeriod.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
-    studyPeriod.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
-    studyPeriod.heightAnchor.constraint(equalToConstant: 20).isActive = true
-    shadowContainer.addSubview(department)
-    department.topAnchor.constraint(equalTo: schoolName.bottomAnchor, constant: 5).isActive = true
-    department.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
-    department.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
-    department.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    shadowContainer.addSubview(companyName)
+    companyName.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    companyName.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
+    companyName.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
+    companyName.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    shadowContainer.addSubview(workPeriod)
+    workPeriod.bottomAnchor.constraint(equalTo: companyName.topAnchor, constant: -5).isActive = true
+    workPeriod.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
+    workPeriod.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
+    workPeriod.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    shadowContainer.addSubview(jobTitle)
+    jobTitle.topAnchor.constraint(equalTo: companyName.bottomAnchor, constant: 5).isActive = true
+    jobTitle.leadingAnchor.constraint(equalTo: dotIcon.trailingAnchor, constant: 15).isActive = true
+    jobTitle.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor, constant: -15).isActive = true
+    jobTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {

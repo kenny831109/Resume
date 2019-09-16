@@ -242,8 +242,20 @@ extension ResumeController: UICollectionViewDataSource{
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let vc = AboutMeController()
 //    vc.introContainer.hero.id = "container\(indexPath.item)"
-    let education = Education(from: "2012.9.1", to: "2016.7.31", isGraduation: true, name: "正修科技大學", department: "資訊工程系")
-    var temp = [Resume(position: .education, education: education)]
+    let eduTitle = Title(title: "學歷", color: UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1), position: .left)
+    let education = Education(from: "2010.9.1", to: "2012.7.31", isGraduation: true, name: "中山工商", department: "電子資訊")
+    let education2 = Education(from: "2012.9.1", to: "2016.7.31", isGraduation: true, name: "正修科技大學", department: "資訊工程系")
+    let expTitle = Title(title: "經歷", color: UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1), position: .left)
+    let experience = Experience(from: "2018.5.21", to: "Now", unemployed: false, companyName: "創創數位科技股份有限公司", title: "iOS 工程師")
+    let worksTitle = Title(title: "作品", color: UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1), position: .center)
+    let screenshots = [ScreenShot(detail: "紀錄潛水及潛水用品商城", image: "Test")]
+    let myApp = Works(name: "水下三十米", screenshots: screenshots, link: "link", views: 0)
+    let screenshots2 = [ScreenShot(detail: "客製化商城", image: "Test")]
+    let myApp2 = Works(name: "創創商城", screenshots: screenshots2, link: "link", views: 0)
+    let screenshots3 = [ScreenShot(detail: "求職應徵Ａpp", image: "Test")]
+    let myApp3 = Works(name: "黑彩", screenshots: screenshots3, link: "link", views: 0)
+    let works = [myApp, myApp2, myApp3]
+    var temp = [Resume(position: .title, title: eduTitle), Resume(position: .education, education: education), Resume(position: .education, education: education2), Resume(position: .title, title: expTitle), Resume(position: .experience, experience: experience), Resume(position: .title, title: worksTitle), Resume(position: .works, works: works)]
     temp.insert(resumes[indexPath.item], at: 0)
 //    vc.resume = [resumes[indexPath.item]]
     vc.resume = temp

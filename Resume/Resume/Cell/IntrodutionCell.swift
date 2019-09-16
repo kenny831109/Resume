@@ -12,8 +12,8 @@ import SwipeCellKit
 
 class IntrodutionCell: SwipeCollectionViewCell {
   
-  lazy var introContainer: IntroContainer = {
-    let container = IntroContainer()
+  lazy var introContainer: ShadowContainer = {
+    let container = ShadowContainer()
     container.translatesAutoresizingMaskIntoConstraints = false
     container.intro.delegate = self
     container.email.addTarget(self, action: #selector(emailDidTap), for: .touchUpInside)

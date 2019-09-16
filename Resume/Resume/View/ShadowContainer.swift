@@ -9,7 +9,7 @@
 import UIKit
 import ActiveLabel
 
-class IntroContainer: UIView {
+class ShadowContainer: UIView {
   
   let avatar: UIImageView = {
     let imageView = UIImageView()

@@ -11,8 +11,8 @@ import ActiveLabel
 
 class IntroCell: UICollectionViewCell {
   
-  lazy var introContainer: IntroContainer = {
-    let container = IntroContainer()
+  lazy var introContainer: ShadowContainer = {
+    let container = ShadowContainer()
     container.translatesAutoresizingMaskIntoConstraints = false
     container.layer.shadowOpacity = 0
     container.intro.delegate = self
