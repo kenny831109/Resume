@@ -175,7 +175,7 @@ extension ResumeController: UICollectionViewDelegate {
     UIView.animate(withDuration: 0.5) {
       if let cell = collectionView.cellForItem(at: indexPath) as? IntrodutionCell {
         cell.introContainer.transform = .init(scaleX: 0.95, y: 0.95)
-        cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+//        cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
       }
     }
   }
@@ -193,7 +193,7 @@ extension ResumeController: UICollectionViewDelegate {
 
 extension ResumeController: SwipeCollectionViewCellDelegate {
   
-  func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+  func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? { 
     guard orientation == .right else { return nil }
     
     let mail = SwipeAction(style: .destructive, title: nil) { action, indexPath in
@@ -219,6 +219,7 @@ extension ResumeController: SwipeCollectionViewCellDelegate {
   
   func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
     var options = SwipeOptions()
+    options.backgroundColor = .clear
     options.expansionStyle = .selection
     options.transitionStyle = .reveal
     return options
@@ -241,6 +242,7 @@ extension ResumeController: UICollectionViewDataSource{
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let vc = AboutMeController()
+    vc.modalPresentationStyle = .fullScreen
 //    vc.introContainer.hero.id = "container\(indexPath.item)"
     let eduTitle = Title(title: "學歷", color: UIColor(red: 74/255, green: 74/255, blue: 74/255, alpha: 1), position: .left)
     let education = Education(from: "2010.9.1", to: "2012.7.31", isGraduation: true, name: "中山工商", department: "電子資訊")

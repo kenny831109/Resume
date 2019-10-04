@@ -28,6 +28,8 @@ class MenuViewController: ResumeController {
     view.tableFooterView = UIView()
     view.backgroundColor = UIColor(red:0.97, green:0.88, blue:0.88, alpha:1.0)
     view.separatorStyle = .none
+    view.isScrollEnabled = false
+    view.contentInset.top = 60
     view.delegate = self
     view.dataSource = self
     view.addGestureRecognizer(panRecognizer)

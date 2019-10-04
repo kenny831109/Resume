@@ -2,7 +2,7 @@ PODS:
   - ActiveLabel (1.1.0)
   - AnimatedCollectionViewLayout (0.6.0)
   - Hero (1.4.0)
-  - SwipeCellKit (2.6.0)
+  - SwipeCellKit (2.7.0)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -21,7 +21,7 @@ SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   AnimatedCollectionViewLayout: f2c4e8dda4e3f1678ad6c0b39273a31b19bc935d
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+  SwipeCellKit: cfcdcbfb739734e494c9d3832a7b6e6f9411e1fd
 
 PODFILE CHECKSUM: e2c861e63722582b24b02f21f73c7df68091b08a
 

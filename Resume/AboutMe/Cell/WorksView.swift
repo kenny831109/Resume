@@ -20,6 +20,7 @@ class WorksView: UICollectionViewCell {
     let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
     view.translatesAutoresizingMaskIntoConstraints = false
     view.backgroundColor = .white
+    view.showsHorizontalScrollIndicator = false
     view.delegate = self
     view.dataSource = self
     view.isPagingEnabled = true
