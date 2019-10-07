@@ -17,6 +17,7 @@
 		94210DF0232234000058310E /* MenuLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DEF232234000058310E /* MenuLogoCell.swift */; };
 		94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF1232234E20058310E /* MenuButtonCell.swift */; };
 		94210DF4232235390058310E /* MenuBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF3232235390058310E /* MenuBottomCell.swift */; };
+		942CC629234AED02003772C9 /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CC628234AED02003772C9 /* WorkModel.swift */; };
 		9483CEF42325F9D7007D4EE8 /* ResumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEF32325F9D7007D4EE8 /* ResumeModel.swift */; };
 		9483CEF82325FC4F007D4EE8 /* ShadowContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEF72325FC4F007D4EE8 /* ShadowContainer.swift */; };
 		9483CEFB23260FB3007D4EE8 /* AboutMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */; };
@@ -47,6 +48,7 @@
 		94210DEF232234000058310E /* MenuLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuLogoCell.swift; sourceTree = "<group>"; };
 		94210DF1232234E20058310E /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		94210DF3232235390058310E /* MenuBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomCell.swift; sourceTree = "<group>"; };
+		942CC628234AED02003772C9 /* WorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
 		9483CEF32325F9D7007D4EE8 /* ResumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeModel.swift; sourceTree = "<group>"; };
 		9483CEF72325FC4F007D4EE8 /* ShadowContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainer.swift; sourceTree = "<group>"; };
 		9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		942CC627234AECEA003772C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				942CC628234AED02003772C9 /* WorkModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9483CEF52325FC2F007D4EE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */,
+				942CC627234AECEA003772C9 /* Model */,
 				9493B3CF23276A4D004B9151 /* Cell */,
 			);
 			path = AboutMe;
@@ -347,6 +358,7 @@
 				94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */,
 				94DA992F23263C8C007BE138 /* CustomAlertType.swift in Sources */,
 				949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */,
+				942CC629234AED02003772C9 /* WorkModel.swift in Sources */,
 				94210DD72321FEEA0058310E /* ResumeController.swift in Sources */,
 				94210DEB23221C0F0058310E /* MenuViewController.swift in Sources */,
 				94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */,
@@ -429,7 +441,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -484,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -500,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Q8K3DDFT5E;
 				INFOPLIST_FILE = Resume/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -520,6 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Q8K3DDFT5E;
 				INFOPLIST_FILE = Resume/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

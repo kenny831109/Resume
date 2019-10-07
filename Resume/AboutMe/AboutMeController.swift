@@ -30,6 +30,16 @@ class AboutMeController: UIViewController {
     return view
   }()
   
+  let avatar: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.layer.cornerRadius = 15
+    imageView.clipsToBounds = true
+    imageView.contentMode = UIView.ContentMode.scaleAspectFill
+    imageView.alpha = 0
+    return imageView
+  }()
+  
   lazy var introContainer: ShadowContainer = {
     let container = ShadowContainer()
     container.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +66,14 @@ class AboutMeController: UIViewController {
     backButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
     panGesture = UIPanGestureRecognizer(target: self, action: #selector(panRecongnizer(_:)))
     panGesture?.delegate = self
-    view.addSubview(resumeList)
     view.addGestureRecognizer(panGesture!)
+    view.addSubview(avatar)
+    avatar.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    avatar.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
+    avatar.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    avatar.widthAnchor.constraint(equalToConstant: 30).isActive = true
+    avatar.image = resume[0].image
+    view.addSubview(resumeList)
     resumeList.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     resumeList.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     resumeList.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 5).isActive = true
@@ -69,6 +85,17 @@ class AboutMeController: UIViewController {
     resumeList.register(WorksView.self, forCellWithReuseIdentifier: "works")
     load()
   }
+  
+  override var previewActionItems: [UIPreviewActionItem] {
+    let add = UIPreviewAction(title: "加到待通知名單", style: .default, handler: { (action, vc) in
+      print("add")
+    })
+    let cancel = UIPreviewAction(title: "返回", style: .destructive) { (action, vc) in
+      print("cancel")
+    }
+    return [add, cancel]
+  }
+  
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .default
@@ -131,6 +158,8 @@ extension AboutMeController: UICollectionViewDelegate, UICollectionViewDelegateF
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let avatarAlpha = scrollView.contentOffset.y / 65
+    avatar.alpha = avatarAlpha
     let shouldScrollEnabled: Bool
     if scrollView.isTracking && scrollView.contentOffset.y < 0 {
       shouldScrollEnabled = false

@@ -1,28 +1,42 @@
 PODS:
   - ActiveLabel (1.1.0)
   - AnimatedCollectionViewLayout (0.6.0)
+  - FSPagerView (0.8.3)
   - Hero (1.4.0)
-  - SwipeCellKit (2.7.0)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
+  - SwipeCellKit (2.7.1)
 
 DEPENDENCIES:
   - ActiveLabel
   - AnimatedCollectionViewLayout
+  - FSPagerView
   - Hero
+  - RealmSwift
   - SwipeCellKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActiveLabel
     - AnimatedCollectionViewLayout
+    - FSPagerView
     - Hero
+    - Realm
+    - RealmSwift
     - SwipeCellKit
 
 SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   AnimatedCollectionViewLayout: f2c4e8dda4e3f1678ad6c0b39273a31b19bc935d
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  SwipeCellKit: cfcdcbfb739734e494c9d3832a7b6e6f9411e1fd
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
+  SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
 
-PODFILE CHECKSUM: e2c861e63722582b24b02f21f73c7df68091b08a
+PODFILE CHECKSUM: 713c8538774ce66040972e3e219453f3531b867b
 
 COCOAPODS: 1.7.3
