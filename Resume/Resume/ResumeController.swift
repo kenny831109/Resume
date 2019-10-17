@@ -40,7 +40,7 @@ class ResumeController: UIViewController {
     layout.minimumLineSpacing = 0
     let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
     view.translatesAutoresizingMaskIntoConstraints = false
-    view.backgroundColor = .white
+    view.backgroundColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1)
     view.delegate = self
     view.dataSource = self
     return view
@@ -62,15 +62,15 @@ class ResumeController: UIViewController {
   }
   
   func setupView() {
-    view.backgroundColor = .white
+    view.backgroundColor = UIColor(red: 155/255, green: 155/255, blue: 155/255, alpha: 1)
     navigationItem.title = "Resume"
     navigationController?.navigationBar.barStyle = .black
     userImageButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
     userImageButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
-    menuButton.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
-    menuButton.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-//    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userImageButton)
-    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+//    menuButton.widthAnchor.constraint(equalToConstant: 20.0).isActive = true
+//    menuButton.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+////    navigationItem.rightBarButtonItem = UIBarButtonItem(customView: userImageButton)
+//    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
     view.addSubview(resumeList)
     resumeList.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
     resumeList.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

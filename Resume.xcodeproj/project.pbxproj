@@ -18,6 +18,8 @@
 		94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF1232234E20058310E /* MenuButtonCell.swift */; };
 		94210DF4232235390058310E /* MenuBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94210DF3232235390058310E /* MenuBottomCell.swift */; };
 		942CC629234AED02003772C9 /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CC628234AED02003772C9 /* WorkModel.swift */; };
+		9433EAB7235834E7005B56FD /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433EAB6235834E7005B56FD /* SettingController.swift */; };
+		9433EABB2358387C005B56FD /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9433EABA2358387C005B56FD /* CustomNavigationController.swift */; };
 		9483CEF42325F9D7007D4EE8 /* ResumeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEF32325F9D7007D4EE8 /* ResumeModel.swift */; };
 		9483CEF82325FC4F007D4EE8 /* ShadowContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEF72325FC4F007D4EE8 /* ShadowContainer.swift */; };
 		9483CEFB23260FB3007D4EE8 /* AboutMeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */; };
@@ -28,7 +30,7 @@
 		9493B3D123276A91004B9151 /* IntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493B3D023276A91004B9151 /* IntroCell.swift */; };
 		9493B3D3232788AB004B9151 /* EducationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9493B3D2232788AB004B9151 /* EducationCell.swift */; };
 		949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6C23224DBB008D6B19 /* MagicModel.swift */; };
-		949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C0C6F23225702008D6B19 /* LightTextCell.swift */; };
+		94A4AFE3234D868A003CF1F2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4AFE2234D868A003CF1F2 /* TabBarController.swift */; };
 		94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992A23263172007BE138 /* CustomAlertController.swift */; };
 		94DA992D232631F5007BE138 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992C232631F5007BE138 /* CustomAlertView.swift */; };
 		94DA992F23263C8C007BE138 /* CustomAlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA992E23263C8C007BE138 /* CustomAlertType.swift */; };
@@ -49,6 +51,8 @@
 		94210DF1232234E20058310E /* MenuButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonCell.swift; sourceTree = "<group>"; };
 		94210DF3232235390058310E /* MenuBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBottomCell.swift; sourceTree = "<group>"; };
 		942CC628234AED02003772C9 /* WorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkModel.swift; sourceTree = "<group>"; };
+		9433EAB6235834E7005B56FD /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
+		9433EABA2358387C005B56FD /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		9483CEF32325F9D7007D4EE8 /* ResumeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeModel.swift; sourceTree = "<group>"; };
 		9483CEF72325FC4F007D4EE8 /* ShadowContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowContainer.swift; sourceTree = "<group>"; };
 		9483CEFA23260FB3007D4EE8 /* AboutMeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeController.swift; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		9493B3D023276A91004B9151 /* IntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCell.swift; sourceTree = "<group>"; };
 		9493B3D2232788AB004B9151 /* EducationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCell.swift; sourceTree = "<group>"; };
 		949C0C6C23224DBB008D6B19 /* MagicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicModel.swift; sourceTree = "<group>"; };
-		949C0C6F23225702008D6B19 /* LightTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTextCell.swift; sourceTree = "<group>"; };
+		94A4AFE2234D868A003CF1F2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		94DA992A23263172007BE138 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		94DA992C232631F5007BE138 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		94DA992E23263C8C007BE138 /* CustomAlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertType.swift; sourceTree = "<group>"; };
@@ -111,11 +115,12 @@
 			isa = PBXGroup;
 			children = (
 				94210DD42321FEEA0058310E /* AppDelegate.swift */,
+				9433EAB823583848005B56FD /* Helper */,
 				94DA993023264CC2007BE138 /* LaunchScreen */,
-				94DA992923263152007BE138 /* CustomAlert */,
+				94A4AFE1234D8666003CF1F2 /* TabBar */,
+				9433EAB5235834C9005B56FD /* Settings */,
 				94210DE823221BF40058310E /* Resume */,
 				9483CEF923260F9B007D4EE8 /* AboutMe */,
-				94210DE923221BFD0058310E /* Menu */,
 				94210DDB2321FEEB0058310E /* Assets.xcassets */,
 				94210DDD2321FEEB0058310E /* LaunchScreen.storyboard */,
 				94210DE02321FEEB0058310E /* Info.plist */,
@@ -162,6 +167,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9433EAB5235834C9005B56FD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9433EAB6235834E7005B56FD /* SettingController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		9433EAB823583848005B56FD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9433EAB92358385B005B56FD /* CustomNavigation */,
+				94210DE923221BFD0058310E /* Menu */,
+				94DA992923263152007BE138 /* CustomAlert */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9433EAB92358385B005B56FD /* CustomNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				9433EABA2358387C005B56FD /* CustomNavigationController.swift */,
+			);
+			path = CustomNavigation;
+			sourceTree = "<group>";
+		};
 		9483CEF52325FC2F007D4EE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,10 +235,17 @@
 		949C0C6E232256B9008D6B19 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				949C0C6F23225702008D6B19 /* LightTextCell.swift */,
 				948D9BE82325E48C00DA9D00 /* IntrodutionCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		94A4AFE1234D8666003CF1F2 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				94A4AFE2234D868A003CF1F2 /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		94DA992923263152007BE138 /* CustomAlert */ = {
@@ -357,14 +395,16 @@
 				9493B3D3232788AB004B9151 /* EducationCell.swift in Sources */,
 				94210DF2232234E20058310E /* MenuButtonCell.swift in Sources */,
 				94DA992F23263C8C007BE138 /* CustomAlertType.swift in Sources */,
-				949C0C7023225702008D6B19 /* LightTextCell.swift in Sources */,
 				942CC629234AED02003772C9 /* WorkModel.swift in Sources */,
+				94A4AFE3234D868A003CF1F2 /* TabBarController.swift in Sources */,
 				94210DD72321FEEA0058310E /* ResumeController.swift in Sources */,
 				94210DEB23221C0F0058310E /* MenuViewController.swift in Sources */,
 				94DA992B23263172007BE138 /* CustomAlertController.swift in Sources */,
+				9433EAB7235834E7005B56FD /* SettingController.swift in Sources */,
 				949C0C6D23224DBB008D6B19 /* MagicModel.swift in Sources */,
 				94856841232F1D7300C2DB15 /* TitleCell.swift in Sources */,
 				9483CEFB23260FB3007D4EE8 /* AboutMeController.swift in Sources */,
+				9433EABB2358387C005B56FD /* CustomNavigationController.swift in Sources */,
 				94856843232F264F00C2DB15 /* ExperienceCell.swift in Sources */,
 				9493B3D123276A91004B9151 /* IntroCell.swift in Sources */,
 				948D9BE92325E48C00DA9D00 /* IntrodutionCell.swift in Sources */,

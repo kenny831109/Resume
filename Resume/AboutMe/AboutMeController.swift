@@ -61,7 +61,7 @@ class AboutMeController: UIViewController {
     hero.isEnabled = true
     view.addSubview(backButton)
     backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-    backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
     backButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
     backButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
     panGesture = UIPanGestureRecognizer(target: self, action: #selector(panRecongnizer(_:)))

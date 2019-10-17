@@ -18,16 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     window = UIWindow()
     let launchScreen = LaunchScreenController()
-    let vc = ResumeController()
-    UINavigationBar.appearance().barTintColor = UIColor(red:0.96, green:0.52, blue:0.53, alpha:1.0)
+    let vc = TabBarController()
+    UINavigationBar.appearance().barTintColor = UIColor(red: 47/255, green: 47/255, blue: 47/255, alpha: 1)
+//    UINavigationBar.appearance().barTintColor = UIColor(red:0.96, green:0.52, blue:0.53, alpha:1.0)
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     UINavigationBar.appearance().isTranslucent = false
-    let navigation = UINavigationController(rootViewController: vc)
+//    let navigation = UINavigationController(rootViewController: vc)
     window?.rootViewController = launchScreen
     window?.makeKeyAndVisible()
     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-      self.window?.rootViewController = navigation
+      self.window?.rootViewController = vc
     }
     return true
   }
